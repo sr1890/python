@@ -1,7 +1,8 @@
 import boto3
 
-aws_mag_console = boto3.session.Session(profile_name="root")
-iam_cons = aws_mag_console.resource('iam')
+aws_mag_con=boto3.session.Session(profile_name='root')
 
-for each_user in iam_cons.users.all():
-    print(each_user.name)
+s3_con = aws_mag_con.resource('s3')
+
+for each_s3 in s3_con.buckets.all():
+    print(each_s3.name)
